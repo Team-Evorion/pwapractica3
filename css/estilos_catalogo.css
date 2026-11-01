@@ -1,0 +1,230 @@
+/* ADICPLAYZONE — estilos exclusivos del catálogo.
+   No se carga en carrito.php y no modifica sus estilos. */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+:root {
+  --fondo:#080a12; --fondo-secundario:#0d1020; --tarjeta:#111526;
+  --blanco:#f4f7ff; --gris:#a4aec5; --azul:#00e5ff;
+  --morado:#8b5cf6; --rosa:#ff3cac; --borde:rgba(127,145,190,.22);
+  --fuente-titulo:'Orbitron',sans-serif; --fuente-texto:'Rajdhani',sans-serif;
+}
+.pagina-catalogo *, .pagina-catalogo *::before, .pagina-catalogo *::after {box-sizing:border-box}
+.pagina-catalogo {margin:0;background:var(--fondo);color:var(--blanco);font:500 18px/1.5 var(--fuente-texto);overflow-x:clip}
+.pagina-catalogo h1,.pagina-catalogo h2,.pagina-catalogo h3,.pagina-catalogo p {margin-top:0}
+.pagina-catalogo a {color:inherit;text-decoration:none}
+.pagina-catalogo button,.pagina-catalogo summary {font:inherit;cursor:pointer}
+.pagina-catalogo button {color:inherit}
+.pagina-catalogo img {max-width:100%;display:block}
+.pagina-catalogo [hidden] {display:none!important}
+.pagina-catalogo :focus-visible {outline:2px solid var(--azul);outline-offset:4px}
+.pagina-catalogo .contenedor {width:min(1180px,92%);margin-inline:auto}
+.pagina-catalogo .seccion {padding:clamp(65px,7vw,105px) 0}
+html {scroll-behavior:smooth;scroll-padding-top:90px}
+.pagina-catalogo section[id], .pagina-catalogo footer[id] {scroll-margin-top:90px}
+.saltar-contenido {position:fixed;top:-80px;left:10px;z-index:9999;background:var(--azul);color:#050914!important;padding:8px 16px;border-radius:8px}
+.saltar-contenido:focus {top:8px}
+.barra-superior {background:linear-gradient(90deg,#141b32,#1c1742);text-align:center;padding:7px 12px;border-bottom:1px solid rgba(139,92,246,.24)}
+.barra-superior p {margin:0;font-size:14px;letter-spacing:.5px;color:#bcc9de}
+/* Cabecera y menús accesibles */
+.encabezado {position:sticky;top:0;z-index:100;background:rgba(8,10,18,.97);border-bottom:1px solid var(--borde);backdrop-filter:blur(18px)}
+.navegacion {min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.logo {display:inline-flex;gap:11px;align-items:center;min-width:0;flex-shrink:0}
+.logo-imagen {width:49px;height:49px;object-fit:cover;border-radius:11px;border:1px solid rgba(0,229,255,.25);box-shadow:0 0 15px rgba(0,229,255,.12)}
+.logo-texto {font:800 13px/1.35 var(--fuente-titulo);letter-spacing:.4px;white-space:nowrap}
+.logo-texto>span {color:var(--azul)}
+.logo-texto small {display:block;color:#aeb7cf;letter-spacing:1.6px;font:600 10px/1.5 var(--fuente-texto);margin-top:2px}
+.menu {display:flex;align-items:center;gap:6px}
+.nav-enlace,.nav-grupo>summary {display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:10px 12px;border-radius:9px;color:#ced5e5;transition:background .2s,color .2s;font-weight:700;white-space:nowrap;list-style:none}
+.nav-grupo>summary::-webkit-details-marker {display:none}
+.nav-enlace:hover,.nav-grupo>summary:hover,.nav-grupo[open]>summary {color:var(--azul);background:rgba(0,229,255,.06)}
+.nav-grupo {position:relative}
+.nav-grupo>summary span {transition:transform .2s;color:var(--azul)}
+.nav-grupo[open]>summary span {transform:rotate(180deg)}
+.nav-submenu {position:absolute;top:calc(100% + 9px);left:0;width:260px;max-height:min(65vh,420px);overflow-y:auto;display:flex;flex-direction:column;gap:4px;padding:10px;border-radius:14px;border:1px solid rgba(0,229,255,.22);background:#13182b;box-shadow:0 20px 45px #02040baa}
+.nav-grupo:last-of-type .nav-submenu {left:auto;right:0}
+.nav-submenu button {width:100%;text-align:left;padding:10px 11px;border:0;background:transparent;border-radius:8px;font-size:16px;font-weight:600;color:#d6ddf3}
+.nav-submenu button:hover,.nav-submenu button:focus-visible,.nav-submenu button[aria-current="true"] {background:rgba(0,229,255,.1);color:var(--azul)}
+.nav-carrito {display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:42px;padding:8px 14px;border-radius:10px;border:1px solid var(--azul);color:var(--azul)!important;font-weight:700;white-space:nowrap}
+.nav-carrito:hover {background:rgba(0,229,255,.12);box-shadow:0 0 15px #00e5ff20}
+.menu-toggle {display:none;width:45px;height:43px;align-items:center;justify-content:center;flex-direction:column;gap:5px;background:#12172a;border:1px solid rgba(0,229,255,.26);border-radius:9px}
+.menu-toggle span {display:block;width:19px;height:2px;background:var(--azul);border-radius:3px}
+/* Botones generales */
+.boton {display:inline-flex;gap:11px;justify-content:center;align-items:center;min-height:46px;padding:10px 21px;border-radius:9px;font-weight:700;transition:transform .22s,background .22s,box-shadow .22s}
+.boton:hover {transform:translateY(-2px)}
+.boton-principal {background:linear-gradient(115deg,var(--azul),#6ac1ff);color:#06111d!important;box-shadow:0 8px 30px #00e5ff24}
+.boton-principal:hover {box-shadow:0 10px 30px #00e5ff46}
+.boton-secundario,.boton-contorno {border:1px solid rgba(0,229,255,.45);color:var(--azul)!important;background:rgba(0,229,255,.04)}
+.boton-secundario:hover,.boton-contorno:hover {background:rgba(0,229,255,.1)}
+.boton-pequeno {padding:8px 14px;min-height:40px;font-size:15px}
+/* Hero: misma idea gráfica de la versión original, con las clases HTML correctas */
+.hero {position:relative;overflow:hidden;background:radial-gradient(ellipse at 77% 50%,#5224912b,transparent 52%),radial-gradient(ellipse at 10% 80%,#00e5ff15,transparent 45%),var(--fondo)}
+.hero::before {content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(#8698c40b 1px,transparent 1px),linear-gradient(90deg,#8698c40b 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(black,transparent)}
+.hero-fondo {pointer-events:none;position:absolute;width:320px;height:320px;border-radius:50%;filter:blur(80px);opacity:.12}
+.brillo-uno {background:var(--azul);left:-170px;top:140px}.brillo-dos {background:var(--morado);right:-120px;top:80px}
+.hero-contenido {position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:center;gap:clamp(20px,4vw,50px);padding:clamp(70px,7vw,100px) 0 65px;min-height:610px}
+.hero-texto {min-width:0}
+.etiqueta {display:inline-flex;gap:10px;align-items:center;background:#00e5ff0a;color:var(--azul);border:1px solid #00e5ff43;border-radius:5px;padding:8px 12px;font-size:13px;font-weight:700;letter-spacing:2px}
+.punto-luz {display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--azul);box-shadow:0 0 12px var(--azul)}
+.hero h1 {font:800 clamp(29px,3.5vw,48px)/1.35 var(--fuente-titulo);letter-spacing:-1.1px;margin:24px 0 20px}
+.hero h1 span {color:var(--azul);text-shadow:0 0 22px #00e5ff30}
+.hero-texto>p {color:#b4bed4;max-width:600px;font-size:19px;line-height:1.6}
+.hero-botones {display:flex;gap:14px;flex-wrap:wrap;margin:26px 0 34px}
+.hero-datos {display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.hero-datos>div {display:flex;flex-direction:column;max-width:122px}
+.hero-datos strong {font:700 19px var(--fuente-titulo);color:var(--azul)}
+.hero-datos span {font-size:13px;color:#aeb9d3}
+.hero-datos i {height:29px;width:1px;background:#4b5478}
+.hero-visual {position:relative;height:425px;display:grid;place-items:center;isolation:isolate}
+.orb {position:absolute;border-radius:50%;filter:blur(1px)}
+.orb-grande {width:355px;height:355px;border:1px solid #00e5ff43;box-shadow:inset 0 0 45px #00e5ff13,0 0 70px #8b5cf622}
+.orb-pequeno {width:275px;height:275px;border:1px dashed #8b5cf67a;transform:rotate(22deg)}
+.anillo {position:absolute;border-radius:50%;pointer-events:none}
+.anillo-uno {width:400px;height:400px;border:1px solid #00e5ff18}.anillo-dos {width:306px;height:306px;border:1px solid #8b5cf63b}
+.dispositivo {position:relative;z-index:2;width:min(310px,72%);transform:rotate(-4deg);filter:drop-shadow(0 20px 26px #0009)}
+.dispositivo-pantalla {aspect-ratio:1.4;border:9px solid #232b41;border-radius:16px;background:linear-gradient(135deg,#121a35,#070d21 45%,#271b4c);box-shadow:inset 0 0 38px #00e5ff13,0 0 0 1px #8294b945;display:flex;flex-direction:column;overflow:hidden}
+.pantalla-cabecera,.pantalla-pie {display:flex;justify-content:space-between;align-items:center;padding:11px 14px;color:#8ea2ce;letter-spacing:1.5px;font:600 10px var(--fuente-titulo)}
+.pantalla-centro {flex:1;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px}
+.simbolo-az {font:900 58px var(--fuente-titulo);color:var(--azul);text-shadow:0 0 24px #00e5ff67}
+.pantalla-centro strong {font:800 13px var(--fuente-titulo);letter-spacing:.6px}
+.pantalla-centro small {font:600 10px var(--fuente-texto);letter-spacing:2px;color:#b5a4ff}
+.dispositivo-base {height:18px;width:115%;margin-left:-7.5%;border-radius:2px 2px 14px 14px;background:linear-gradient(#53627d,#202a43 75%);box-shadow:0 12px 20px #0006}
+.tarjeta-flotante {position:absolute;z-index:3;display:flex;gap:12px;align-items:center;border:1px solid #8f9bc451;background:#11172add;backdrop-filter:blur(10px);border-radius:12px;padding:10px 15px;box-shadow:0 13px 24px #0008;animation:flotar 6s ease-in-out infinite}
+.tarjeta-arriba {top:47px;right:0}.tarjeta-abajo {bottom:50px;left:0;animation-delay:-3s}
+.tarjeta-flotante>span:first-child {font-size:25px;color:var(--azul)}
+.tarjeta-flotante b {display:block;font-size:16px}.tarjeta-flotante small {display:block;font-size:12px;color:var(--gris)}
+.decoracion {position:absolute;color:#8beeff;opacity:.7;font-size:25px}.decoracion-uno {left:12%;top:30px}.decoracion-dos {right:3%;bottom:45px}
+.hero-pie {display:flex;align-items:center;justify-content:center;gap:27px;padding:17px;border-top:1px solid var(--borde);color:#99a8c8;font:600 11px var(--fuente-titulo);letter-spacing:2px}
+.linea-pie {width:60px;height:1px;background:#6675935a}
+/* Secciones y categorías */
+.encabezado-seccion {display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:35px}
+.sobre-titulo {display:inline-block;margin-bottom:13px;color:var(--azul);font:700 12px var(--fuente-titulo);letter-spacing:2px}
+.encabezado-seccion h2,.nosotros-texto h2,.franja-llamada h2 {margin:0;font:800 clamp(24px,3vw,36px)/1.4 var(--fuente-titulo);letter-spacing:-.6px}
+.encabezado-seccion>p {max-width:360px;color:var(--gris);margin-bottom:0}
+.categorias {background:var(--fondo-secundario)}
+.categorias-grid {display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
+.categoria-card {position:relative;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;min-height:158px;padding:16px 10px;text-align:center;background:linear-gradient(155deg,#151c32,#0d1120);border:1px solid var(--borde);border-radius:13px;transition:transform .2s,border-color .2s,box-shadow .2s}
+.categoria-card:hover {transform:translateY(-4px);border-color:#00e5ff88}
+.categoria-card[aria-pressed="true"] {border:2px solid var(--azul);background:linear-gradient(145deg,#173350,#121733);box-shadow:0 0 23px #00e5ff37,inset 0 0 20px #00e5ff0e}
+.categoria-icono {font-size:32px}.categoria-nombre {font-weight:700;font-size:16px;line-height:1.25}
+.categoria-card[aria-pressed="true"] .categoria-nombre {color:var(--azul)}
+.categoria-flecha {position:absolute;top:7px;right:10px;font-size:19px;color:var(--azul);opacity:.6}
+/* Productos */
+.productos {background:radial-gradient(ellipse at 85% 10%,#8b5cf615,transparent 43%),var(--fondo)}
+.catalogo-filtros {display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:25px}
+.filtro-todos {border:1px solid #42516c;background:#141d30;border-radius:9px;padding:9px 15px;font-weight:700;min-height:43px}
+.filtro-todos.activo,.filtro-todos:hover {border-color:var(--azul);color:var(--azul);background:#00e5ff12}
+#estado-filtro {color:#aebad3;font-size:16px}
+.productos-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:23px}
+.producto-card {display:flex;flex-direction:column;background:var(--tarjeta);border:1px solid var(--borde);border-radius:14px;overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s}
+.producto-card:hover {transform:translateY(-5px);border-color:#00e5ff77;box-shadow:0 18px 35px #0006}
+.producto-imagen {position:relative;height:235px;background:linear-gradient(135deg,#15203a,#111527);overflow:hidden}
+.producto-imagen>img {display:block;width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.producto-card:hover .producto-imagen img {transform:scale(1.05)}
+.producto-imagen::after {content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,#0c1120a6);pointer-events:none}
+.producto-imagen .imagen-respaldo {position:absolute;inset:0;display:none;place-items:center;color:#9bd8ee;text-align:center;padding:25px;font:700 15px var(--fuente-titulo)}
+.producto-imagen.sin-imagen .imagen-respaldo {display:grid}
+.producto-imagen.sin-imagen img {display:none}
+.producto-etiqueta {position:absolute;top:13px;left:13px;z-index:2;border:1px solid #00e5ff52;color:var(--azul);background:#0a1122e6;padding:5px 8px;border-radius:5px;font:600 10px var(--fuente-titulo)}
+.favorito {position:absolute;top:12px;right:12px;z-index:3;width:38px;height:38px;border-radius:50%;border:1px solid #bbc5df6a;background:#090d1ccc;font-size:25px;color:#f4f7ff}
+.favorito[aria-pressed="true"] {color:#ff6db2;background:#381331d9;border-color:#ff80c1}
+.producto-info {display:flex;flex:1;flex-direction:column;padding:21px}
+.producto-categoria {font-size:13px;font-weight:700;color:var(--azul);text-transform:uppercase;letter-spacing:1px}
+.producto-info h3 {font:700 16px/1.55 var(--fuente-titulo);min-height:49px;margin:8px 0}
+.producto-descripcion {flex:1;color:var(--gris);line-height:1.45;font-size:16px;margin:0}
+.producto-pie {border-top:1px solid var(--borde);margin-top:20px;padding-top:17px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.producto-precio {display:flex;flex-direction:column;gap:3px}
+.producto-precio small {color:#a7b3c9;font-size:13px}.producto-precio strong {font:800 22px var(--fuente-titulo)}
+.boton-producto {display:inline-flex;justify-content:center;align-items:center;gap:7px;min-height:45px;padding:9px 13px;border:1px solid #00e5ff80;border-radius:8px;background:#00e5ff11;color:var(--azul)!important;font-weight:800;font-size:15px;white-space:nowrap}
+.boton-producto:hover {background:var(--azul);color:#07101c!important}
+.nota-catalogo {margin:23px 0 0;color:#95a1b8;font-size:15px}
+.sin-productos {border:1px solid #49627e;background:#151c2e;border-radius:12px;padding:26px;color:#bfcee8;text-align:center}
+/* CTA, nosotros, beneficios, footer */
+.franja-llamada {padding:45px 0;background:linear-gradient(115deg,#141d35,#221946);border-block:1px solid #8b5cf645}
+.franja-contenido {display:flex;justify-content:space-between;align-items:center;gap:30px}
+.franja-llamada h2 {font-size:clamp(23px,2.4vw,30px)}
+.franja-llamada p {margin:8px 0 0;color:#b8c4db}
+.nosotros {background:var(--fondo-secundario)}
+.nosotros-contenido {display:grid;grid-template-columns:.9fr 1.1fr;align-items:center;gap:clamp(30px,7vw,80px)}
+.nosotros-visual {min-height:320px;display:grid;place-items:center;background:radial-gradient(circle,#00e5ff17,transparent 60%),#11182a;border:1px solid var(--borde);border-radius:16px;overflow:hidden}
+.nosotros-cuadro {position:relative;width:77%;min-height:228px;border:1px solid #00e5ff78;outline:1px solid #8b5cf64d;outline-offset:9px;background:#070e20ab;display:flex;justify-content:center;align-items:center;flex-direction:column;text-align:center}
+.nosotros-logo {font:900 clamp(42px,7vw,70px) var(--fuente-titulo);color:var(--azul);letter-spacing:7px;text-shadow:0 0 25px #00e5ff57}
+.nosotros-cuadro strong {font:700 18px/1.5 var(--fuente-titulo);letter-spacing:5px}
+.nosotros-frase {color:#c7bbff;font:500 11px var(--fuente-titulo);letter-spacing:1px;margin-top:7px}
+.nosotros-texto h2 {margin-bottom:22px}.nosotros-texto>p {color:var(--gris);margin-bottom:15px}.nosotros-texto .boton {margin-top:16px}
+.beneficios {padding:35px 0;background:#0b1020;border-block:1px solid var(--borde)}
+.beneficios-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:25px}
+.beneficio {display:flex;gap:14px;align-items:center}
+.beneficio-icono {width:55px;height:55px;flex-shrink:0;display:grid;place-items:center;font-size:25px;border:1px solid #00e5ff3b;color:var(--azul);border-radius:11px;background:#00e5ff12}
+.beneficio h3 {margin:0 0 3px;font-size:19px}.beneficio p {color:var(--gris);font-size:16px;margin:0}
+.footer {background:#070910}
+.footer-principal {display:grid;grid-template-columns:1.45fr .8fr .8fr 1.1fr;gap:45px;padding-block:55px}
+.footer-marca p {color:var(--gris);font-size:16px;max-width:270px;margin:17px 0 0}
+.footer-columna {display:flex;align-items:start;flex-direction:column;gap:9px}
+.footer-columna h3 {font:700 14px var(--fuente-titulo);margin:2px 0 12px;color:var(--blanco)}
+.footer-columna a,.footer-columna button {color:#adb9d3;font-size:16px;text-align:left}
+.footer-columna button {background:transparent;border:0;padding:0}
+.footer-columna a:hover,.footer-columna button:hover {color:var(--azul)}
+.footer-contacto p {margin:0;color:var(--gris);font-size:16px}.contacto-aviso {font-size:14px;color:#8496b6}
+.footer-inferior {border-top:1px solid var(--borde)}
+.footer-final-contenido {min-height:65px;display:flex;justify-content:space-between;align-items:center;gap:18px;color:#8b97b3;font-size:15px}
+.volver-arriba {color:var(--azul)!important;font-weight:700}
+@keyframes flotar {0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@media(max-width:1100px) {
+  .navegacion {gap:8px}.nav-enlace,.nav-grupo>summary {padding:9px 8px}.logo-texto {font-size:11px}.logo-imagen {width:43px;height:43px}
+  .categorias-grid {grid-template-columns:repeat(3,minmax(0,1fr))}
+  .hero-visual {transform:scale(.92)}
+}
+@media(max-width:860px) {
+  .menu-toggle {display:flex}
+  .navegacion {min-height:69px;flex-wrap:wrap}
+  .menu {display:none;position:absolute;top:100%;left:0;right:0;max-height:calc(100dvh - 69px);overflow-y:auto;padding:13px 4%;background:#0e1424;border-bottom:1px solid #00e5ff4a;box-shadow:0 16px 22px #0008;flex-direction:column;align-items:stretch;gap:4px}
+  .menu.menu-abierto {display:flex}
+  .nav-enlace,.nav-grupo>summary,.nav-carrito {display:flex;justify-content:space-between;padding:11px 14px;min-height:43px}
+  .nav-submenu,.nav-grupo:last-of-type .nav-submenu {position:static;width:100%;max-height:none;margin:3px 0 6px;box-shadow:none;background:#161e33;overflow:visible}
+  .hero-contenido {grid-template-columns:1fr;gap:8px;padding:58px 0 28px;min-height:0}
+  .hero-texto {max-width:700px}
+  .hero-visual {width:100%;max-width:490px;margin:0 auto;height:355px;transform:scale(.86)}
+  .productos-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+  .nosotros-contenido {grid-template-columns:1fr;gap:35px}
+  .nosotros-visual {max-width:650px;width:100%}
+  .footer-principal {grid-template-columns:repeat(2,minmax(0,1fr));gap:40px}
+  .beneficios-grid {gap:15px}.beneficio {align-items:start}
+}
+@media(max-width:600px) {
+  .barra-superior p {font-size:12px}
+  .logo-texto {font-size:11px}.logo-imagen {width:41px;height:41px}
+  .seccion {padding:65px 0}
+  .encabezado-seccion {display:block;margin-bottom:25px}
+  .encabezado-seccion>p {margin-top:13px}
+  .hero-contenido {padding:52px 0 20px}
+  .hero h1 {font-size:clamp(27px,7.2vw,36px)}
+  .hero-texto>p {font-size:17px}
+  .hero-botones {gap:10px}
+  .hero-botones .boton {padding:11px 14px;flex:1;min-width:145px}
+  .hero-datos {gap:12px}.hero-datos strong {font-size:16px}.hero-datos span {font-size:12px}
+  .hero-visual {height:305px;transform:scale(.75);margin-block:-22px -27px}
+  .tarjeta-arriba {right:-20px}.tarjeta-abajo {left:-30px}
+  .hero-pie {gap:10px;font-size:9px;letter-spacing:1px}.linea-pie {width:20px}
+  .categorias-grid {grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+  .categoria-card {min-height:142px;padding:14px 8px}.categoria-nombre {font-size:15px}.categoria-icono {font-size:28px}
+  .productos-grid {grid-template-columns:1fr;gap:20px}
+  .producto-imagen {height:240px}
+  .producto-info h3 {min-height:0}
+  .franja-contenido {flex-direction:column;align-items:start;gap:20px}
+  .beneficios-grid {grid-template-columns:1fr}.beneficio {align-items:center}
+  .footer-principal {grid-template-columns:repeat(2,minmax(0,1fr));column-gap:18px;row-gap:34px;padding-block:45px}
+  .footer-marca,.footer-contacto {grid-column:1/-1}
+  .footer-final-contenido {flex-direction:column;align-items:start;padding:20px 0}
+}
+@media(max-width:370px) {
+  .logo-texto {font-size:10px}.logo {gap:7px}.menu-toggle {width:42px}
+  .hero-datos>div {max-width:100px}
+  .hero-visual {transform:scale(.67);margin-block:-34px -40px}
+  .categoria-nombre {font-size:14px}
+}
+@media(prefers-reduced-motion:reduce) {
+  .pagina-catalogo *,.pagina-catalogo *::before,.pagina-catalogo *::after {animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+
+/* Enlace del pie a la nueva página de contacto y equipo. */
+.footer-link-equipo{display:inline-flex;align-items:center;gap:8px;margin-top:13px;font-weight:700;color:var(--azul)!important;text-decoration:none;}
+.footer-link-equipo:hover{text-decoration:underline;}
